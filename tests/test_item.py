@@ -67,3 +67,12 @@ def test_repr(item_phone):
 
 def test_str(item_phone):
     assert item_phone.__str__() == "phone"
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
+    assert Item.all[0].name == "Смартфон"
+    assert Item.all[1].price == 1000
+    assert Item.all[2].quantity == 5
+    assert repr(Item.all[4]) == "Item('Клавиатура', 75.0, 5)"
+
